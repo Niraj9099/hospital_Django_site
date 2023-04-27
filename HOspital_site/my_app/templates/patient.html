@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block main %}
+<div class="container">
+    <h2 class="text-center mt-3">Patient DashBoard</h2>
+    {% if user is not Null %}
+    {% for fm in user %}
+    <div class="row mt-5 mx-auto">
+        <div class="col-md-8 ">
+            <h4 class="mt-2">First_Name : <span style="color: rgb(122, 119, 119);">{{fm.first_name}}</span></h4> <hr>
+            <h4 class="mt-2">Last_Name : <span style="color: rgb(122, 119, 119);">{{fm.last_name}}</span></h4> <hr>
+            <h4 class="mt-2">UserName : <span style="color: rgb(122, 119, 119);">{{fm.username}}</span></h4> <hr>
+            <h4 class="mt-2">Email Id : <span style="color: rgb(122, 119, 119);">{{fm.email}}</span></h4> <hr>
+            <h4 class="mt-2">category : <span style="color: rgb(122, 119, 119);">{{fm.catagory}}</span></h4> <hr>
+        </div>
+        <div class="col-md-4">
+        <img src="{{fm.user_profile.url}}" alt="" srcset="" height="200" width="200">
+        </div>
+        <h4>Address : <span style="color: rgb(122, 119, 119);">{{fm.Address}}</span> city : <span style="color: rgb(122, 119, 119);">{{fm.city}}</span>  state : <span style="color: rgb(122, 119, 119);">{{fm.state}}</span>  pin code : <span style="color: rgb(122, 119, 119);">{{fm.pincode}}</span></h4>
+    </div>
+    {% endfor %}
+    {% endif %}
+</div>
+
+{% endblock main %}
